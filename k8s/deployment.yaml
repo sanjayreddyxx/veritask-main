@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veritask-web
+  labels:
+    app: veritask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: veritask
+  template:
+    metadata:
+      labels:
+        app: veritask
+    spec:
+      containers:
+        - name: veritask
+          # Replace this image with your registry/image tag
+          image: your-registry/veritask:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          env:
+            - name: NODE_ENV
+              value: "production"
+      # Optional imagePullSecrets for private registries
+      imagePullSecrets:
+        - name: regcred
