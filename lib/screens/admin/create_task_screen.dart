@@ -164,9 +164,9 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                     padding: const EdgeInsets.all(16),
                     margin: const EdgeInsets.only(bottom: 24),
                     decoration: BoxDecoration(
-                      color: kPrimary.withOpacity(0.05),
+                      color: kPrimary.withAlpha(13),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: kPrimary.withOpacity(0.1)),
+                      border: Border.all(color: kPrimary.withAlpha(26)),
                     ),
                     child: Row(
                       children: [

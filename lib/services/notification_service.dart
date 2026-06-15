@@ -93,7 +93,7 @@ class NotificationService {
         if (notification != null) {
           if (kIsWeb) {
             // Web-specific console or fallback alert
-            print('Foreground web notification received: ${notification.title} - ${notification.body}');
+            if (kDebugMode) debugPrint('Foreground web notification received: ${notification.title} - ${notification.body}');
           } else {
             AndroidNotification? android = message.notification?.android;
             _localNotif.show(
@@ -136,7 +136,7 @@ class NotificationService {
 
       _initialized = true;
     } catch (e) {
-      print('Error initializing NotificationService: $e');
+      if (kDebugMode) debugPrint('Error initializing NotificationService: $e');
     }
   }
 

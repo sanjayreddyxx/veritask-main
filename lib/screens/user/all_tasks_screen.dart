@@ -133,7 +133,7 @@ class _AllTasksScreenState extends State<AllTasksScreen> {
                 color: active ? kPrimary : const Color(0xFFF8FAFC),
                 borderRadius: BorderRadius.circular(14),
                 border: Border.all(color: active ? kPrimary : const Color(0xFFE2E8F0)),
-                boxShadow: active ? [BoxShadow(color: kPrimary.withOpacity(0.2), blurRadius: 8, offset: const Offset(0, 4))] : [],
+                boxShadow: active ? [BoxShadow(color: kPrimary.withAlpha(51), blurRadius: 8, offset: const Offset(0, 4))] : [],
               ),
               child: Center(
                 child: Text(
