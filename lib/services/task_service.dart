@@ -124,10 +124,15 @@ class TaskService {
     int pending = 0, submitted = 0, verified = 0, rejected = 0;
     for (var doc in snap.docs) {
       final status = doc.data()['status'] ?? '';
-      if (status == 'pending') pending++;
-      else if (status == 'submitted') submitted++;
-      else if (status == 'verified') verified++;
-      else if (status == 'rejected') rejected++;
+      if (status == 'pending') {
+        pending++;
+      } else if (status == 'submitted') {
+        submitted++;
+      } else if (status == 'verified') {
+        verified++;
+      } else if (status == 'rejected') {
+        rejected++;
+      }
     }
     return {
       'total': total,
