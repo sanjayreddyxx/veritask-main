@@ -37,8 +37,8 @@ class AdminReviewScreen extends StatelessWidget {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(32),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF1F5F9),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFF1F5F9),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(Icons.verified_rounded,
