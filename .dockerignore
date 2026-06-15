@@ -1,0 +1,17 @@
+.dart_tool/
+.idea/
+.vscode/
+.git/
+.github/
+.gradle/
+build/
+ios/
+android/
+windows/
+macos/
+linux/
+pubspec.lock
+*.iml
+*.log
+node_modules/
+**/test_outputs/
