@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "412649761434",
+    "project_id": "veritask-9092a",
+    "storage_bucket": "veritask-9092a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412649761434:android:0927dcfdb611c1ff84cd23",
+        "android_client_info": {
+          "package_name": "com.example.sanjay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412649761434-0cigdf631olndnevkgd154uk94o31j2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9hQRfrS1FSBwCBij36FWYmIb-32EOihY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412649761434-0cigdf631olndnevkgd154uk94o31j2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
