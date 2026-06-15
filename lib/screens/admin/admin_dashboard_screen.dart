@@ -248,7 +248,7 @@ class _AdminHomeTab extends StatelessWidget {
                 ),
                 
                 const SizedBox(height: 32),
-                SectionHeader(title: 'Administrative Tools'),
+                const SectionHeader(title: 'Administrative Tools'),
                 const SizedBox(height: 16),
 
                 const SizedBox(height: 32),
