@@ -93,7 +93,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           width: 140,
                           height: 140,
                           decoration: BoxDecoration(
-                            color: slide.color.withOpacity(0.12),
+                            color: slide.color.withAlpha(31),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(

@@ -104,7 +104,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF0F172A).withOpacity(0.04),
+                      color: const Color(0xFF0F172A).withAlpha(10),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),

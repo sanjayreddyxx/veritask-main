@@ -70,7 +70,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withAlpha(13),
             blurRadius: 20,
             offset: const Offset(0, -5),
           ),
@@ -107,7 +107,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
       activeIcon: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
         decoration: BoxDecoration(
-          color: kPrimary.withOpacity(0.1),
+          color: kPrimary.withAlpha(26),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Icon(activeIcon, size: 24),
@@ -147,7 +147,7 @@ class _AdminHomeTab extends StatelessWidget {
                         letterSpacing: -0.5)),
                 Text('Managing: ${user?.name ?? ""}',
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7), fontSize: 10)),
+                        color: Colors.white.withAlpha(179), fontSize: 10)),
               ],
             ),
             background: Container(
@@ -163,7 +163,7 @@ class _AdminHomeTab extends StatelessWidget {
               icon: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withAlpha(51),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(Icons.logout_rounded, color: Colors.white, size: 20),
@@ -188,7 +188,7 @@ class _AdminHomeTab extends StatelessWidget {
                     borderRadius: BorderRadius.circular(24),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.03),
+                        color: Colors.black.withAlpha(8),
                         blurRadius: 20,
                         offset: const Offset(0, 10),
                       ),
@@ -199,7 +199,7 @@ class _AdminHomeTab extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundColor: kPrimary.withOpacity(0.1),
+                        backgroundColor: kPrimary.withAlpha(26),
                         child: Text(
                           user?.name.substring(0, 1).toUpperCase() ?? "A",
                           style: TextStyle(
@@ -248,7 +248,7 @@ class _AdminHomeTab extends StatelessWidget {
                 ),
                 
                 const SizedBox(height: 32),
-                SectionHeader(title: 'Administrative Tools'),
+                const SectionHeader(title: 'Administrative Tools'),
                 const SizedBox(height: 16),
 
                 const SizedBox(height: 32),
@@ -282,7 +282,7 @@ class _AdminHomeTab extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            Icon(Icons.auto_stories_outlined, color: Colors.grey.withOpacity(0.5), size: 48),
+                            Icon(Icons.auto_stories_outlined, color: Colors.grey.withAlpha(128), size: 48),
                             const SizedBox(height: 16),
                             const Text(
                               'No courses published yet',

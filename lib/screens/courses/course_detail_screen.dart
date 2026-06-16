@@ -94,7 +94,7 @@ class CourseDetailScreen extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [categoryColor, categoryColor.withOpacity(0.8)],
+                        colors: [categoryColor, categoryColor.withAlpha(204)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                       ),
@@ -103,7 +103,7 @@ class CourseDetailScreen extends StatelessWidget {
                   Positioned(
                     bottom: -30,
                     right: -30,
-                    child: Icon(Icons.school_rounded, size: 240, color: Colors.white.withOpacity(0.1)),
+                    child: Icon(Icons.school_rounded, size: 240, color: Colors.white.withAlpha(26)),
                   ),
                   SafeArea(
                     child: Center(
@@ -113,9 +113,9 @@ class CourseDetailScreen extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.white.withAlpha(51),
                               shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white.withOpacity(0.3)),
+                              border: Border.all(color: Colors.white.withAlpha(77)),
                             ),
                             child: const Icon(Icons.menu_book_rounded, size: 48, color: Colors.white),
                           ),
@@ -123,7 +123,7 @@ class CourseDetailScreen extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.white.withAlpha(51),
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Text(
@@ -318,7 +318,7 @@ class CourseDetailScreen extends StatelessWidget {
           border: Border.all(color: const Color(0xFFE2E8F0)),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.02),
+              color: Colors.black.withAlpha(5),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -329,7 +329,7 @@ class CourseDetailScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: _getPriorityColor(t.priority).withOpacity(0.1),
+                color: _getPriorityColor(t.priority).withAlpha(26),
                 shape: BoxShape.circle,
               ),
               child: Icon(Icons.assignment_rounded, color: _getPriorityColor(t.priority), size: 20),
@@ -355,7 +355,7 @@ class CourseDetailScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                           decoration: BoxDecoration(
-                            color: kPrimary.withOpacity(0.1),
+                            color: kPrimary.withAlpha(26),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
@@ -589,7 +589,7 @@ class CourseDetailScreen extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            backgroundColor: kPrimary.withOpacity(0.1),
+            backgroundColor: kPrimary.withAlpha(26),
             child: Text(
               e.userName[0].toUpperCase(),
               style: const TextStyle(color: kPrimary, fontWeight: FontWeight.bold),
@@ -636,9 +636,9 @@ class CourseDetailScreen extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.2),
+          color: Colors.white.withAlpha(51),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white.withOpacity(0.3)),
+          border: Border.all(color: Colors.white.withAlpha(77)),
         ),
         child: Icon(icon, size: 20, color: Colors.white),
       ),
@@ -664,7 +664,7 @@ class CourseDetailScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
+              color: color.withAlpha(26),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, color: color, size: 18),

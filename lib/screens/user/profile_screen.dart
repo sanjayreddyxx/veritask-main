@@ -42,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
                         width: 80,
                         height: 80,
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
+                          color: Colors.white.withAlpha(51),
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.white, width: 2),
                         ),
@@ -75,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: isAdmin ? const Color(0xFFFFF7ED) : const Color(0xFFEFF6FF),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: isAdmin ? kWarning.withOpacity(0.3) : kInfo.withOpacity(0.3)),
+                      border: Border.all(color: isAdmin ? kWarning.withAlpha(77) : kInfo.withAlpha(77)),
                     ),
                     child: Text(
                       isAdmin ? 'ADMINISTRATOR' : 'LEARNER',
@@ -226,7 +226,7 @@ class _StatsContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         border: Border.all(color: const Color(0xFFE2E8F0)),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 15, offset: const Offset(0, 8)),
+          BoxShadow(color: Colors.black.withAlpha(5), blurRadius: 15, offset: const Offset(0, 8)),
         ],
       ),
       child: Column(
@@ -348,7 +348,7 @@ class _ProfileDetailScreen extends StatelessWidget {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: kPrimary.withOpacity(0.1),
+                      color: kPrimary.withAlpha(26),
                       blurRadius: 30,
                       offset: const Offset(0, 10),
                     ),

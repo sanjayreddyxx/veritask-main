@@ -164,9 +164,9 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                     padding: const EdgeInsets.all(16),
                     margin: const EdgeInsets.only(bottom: 24),
                     decoration: BoxDecoration(
-                      color: kPrimary.withOpacity(0.05),
+                      color: kPrimary.withAlpha(13),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: kPrimary.withOpacity(0.1)),
+                      border: Border.all(color: kPrimary.withAlpha(26)),
                     ),
                     child: Row(
                       children: [
@@ -258,7 +258,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                   const SizedBox(height: 20),
                   // Category
                   DropdownButtonFormField<String>(
-                    value: _category,
+                    initialValue: _category,
                     decoration: const InputDecoration(
                       labelText: 'Category',
                       prefixIcon: Icon(Icons.category_outlined),
@@ -342,7 +342,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                             style: TextStyle(color: Color(0xFF94A3B8)));
                       }
                       return DropdownButtonFormField<String>(
-                        value: _selectedUserId,
+                        initialValue: _selectedUserId,
                         decoration: const InputDecoration(
                           labelText: 'Select collaborator',
                           prefixIcon: Icon(Icons.person_add_outlined),
@@ -350,8 +350,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                         items: users
                             .map((u) => DropdownMenuItem(
                                   value: u.uid,
-                                  child: Text(
-                                      '${u.name}'),
+                                            child: Text(u.name),
                                 ))
                             .toList(),
                         onChanged: (v) {
@@ -395,6 +394,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
   void dispose() {
     _titleCtrl.dispose();
     _descCtrl.dispose();
+    _marksCtrl.dispose();
     super.dispose();
   }
 }

@@ -60,7 +60,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withAlpha(13),
             blurRadius: 20,
             offset: const Offset(0, -5),
           ),
@@ -104,8 +104,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
         padding: const EdgeInsets.only(bottom: 4),
         child: Container(
           padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: kPrimary.withOpacity(0.1),
+            decoration: BoxDecoration(
+            color: kPrimary.withAlpha(26),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(activeIcon, size: 24),
@@ -159,13 +159,13 @@ class _HomeTab extends StatelessWidget {
                   top: -50,
                   right: -50,
                   child: Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
-                      shape: BoxShape.circle,
+                      width: 200,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withAlpha(13),
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
                 ),
                 SafeArea(
                   child: Padding(
@@ -182,7 +182,7 @@ class _HomeTab extends StatelessWidget {
                                 Text(
                                   _getGreeting(),
                                   style: TextStyle(
-                                    color: Colors.white.withOpacity(0.8),
+                                    color: Colors.white.withAlpha(204),
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -202,9 +202,9 @@ class _HomeTab extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.all(2),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withAlpha(51),
                                 shape: BoxShape.circle,
-                                border: Border.all(color: Colors.white.withOpacity(0.3), width: 1),
+                                border: Border.all(color: Colors.white.withAlpha(77), width: 1),
                               ),
                               child: CircleAvatar(
                                 radius: 22,
@@ -254,7 +254,7 @@ class _HomeTab extends StatelessWidget {
                               value: stats['total'] ?? 0,
                               icon: Icons.assignment_rounded,
                               iconColor: kInfo,
-                              iconBg: kInfo.withOpacity(0.1),
+                              iconBg: kInfo.withAlpha(26),
                             ),
                           ),
                           const SizedBox(width: 16),
@@ -264,7 +264,7 @@ class _HomeTab extends StatelessWidget {
                               value: stats['pending'] ?? 0,
                               icon: Icons.pending_actions_rounded,
                               iconColor: kWarning,
-                              iconBg: kWarning.withOpacity(0.1),
+                              iconBg: kWarning.withAlpha(26),
                             ),
                           ),
                         ],
@@ -352,7 +352,7 @@ class _HomeTab extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF4F46E5).withOpacity(0.3),
+              color: const Color(0xFF4F46E5).withAlpha(77),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -360,13 +360,13 @@ class _HomeTab extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Positioned(
+                Positioned(
               right: -20,
               top: -20,
               child: Icon(
                 Icons.school_rounded,
                 size: 150,
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withAlpha(26),
               ),
             ),
             Padding(
@@ -377,7 +377,7 @@ class _HomeTab extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white.withAlpha(51),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: const Text(
@@ -401,8 +401,8 @@ class _HomeTab extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     'Browse through our curated collection of courses and certifications.',
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
+                      style: TextStyle(
+                      color: Colors.white.withAlpha(204),
                       fontSize: 14,
                       height: 1.5,
                     ),

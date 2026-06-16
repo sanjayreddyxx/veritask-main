@@ -57,16 +57,15 @@ class _CreateEditCourseScreenState extends State<CreateEditCourseScreen> {
       return;
     }
     final role = await AuthService().getUserRole(uid);
+    if (!mounted) return;
     if (role != 'admin') {
-      if (mounted) {
-        Navigator.pop(context);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Access Denied: Admins Only'),
-            backgroundColor: kDanger,
-          ),
-        );
-      }
+      Navigator.pop(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Access Denied: Admins Only'),
+          backgroundColor: kDanger,
+        ),
+      );
     }
   }
 
@@ -118,9 +117,11 @@ class _CreateEditCourseScreenState extends State<CreateEditCourseScreen> {
         }
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e'), backgroundColor: kDanger),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e'), backgroundColor: kDanger),
+        );
+      }
     } finally {
       if (mounted) setState(() => _loading = false);
     }
@@ -195,7 +196,7 @@ class _CreateEditCourseScreenState extends State<CreateEditCourseScreen> {
 
                 // Category dropdown
                 DropdownButtonFormField<String>(
-                  value: _category,
+                  initialValue: _category,
                   decoration: const InputDecoration(
                     labelText: 'Category',
                     prefixIcon: Icon(Icons.label_outline),
