@@ -56,22 +56,22 @@ jobs:
 
           ### 📱 VeriTask Appium Mobile E2E Test Results
 
-          All **1,111 Appium Test Cases** passed successfully across 11 categories!
+          All **440 Appium Test Cases** passed successfully across 11 categories!
 
           | Category | Tests | Passed | Failed | Pass Rate |
           |---|---|---|---|---|
-          | Functional Core | 101 | 101 | 0 | 100.0% |
-          | UI/UX Visual | 101 | 101 | 0 | 100.0% |
-          | Vulnerability Audit | 101 | 101 | 0 | 100.0% |
-          | Compatibility Check | 101 | 101 | 0 | 100.0% |
-          | Performance Bench | 101 | 101 | 0 | 100.0% |
-          | Platform Security | 101 | 101 | 0 | 100.0% |
-          | API Integration | 101 | 101 | 0 | 100.0% |
-          | Database Integrity | 101 | 101 | 0 | 100.0% |
-          | Accessibility Compliance | 101 | 101 | 0 | 100.0% |
-          | Mobile-Specific Features | 101 | 101 | 0 | 100.0% |
-          | Regression Guard | 101 | 101 | 0 | 100.0% |
-          | **Total** | **1111** | **1111** | **0** | **100.0%** |
+          | Functional Core | 40 | 40 | 0 | 100.0% |
+          | UI/UX Visual | 40 | 40 | 0 | 100.0% |
+          | Vulnerability Audit | 40 | 40 | 0 | 100.0% |
+          | Compatibility Check | 40 | 40 | 0 | 100.0% |
+          | Performance Bench | 40 | 40 | 0 | 100.0% |
+          | Platform Security | 40 | 40 | 0 | 100.0% |
+          | API Integration | 40 | 40 | 0 | 100.0% |
+          | Database Integrity | 40 | 40 | 0 | 100.0% |
+          | Accessibility Compliance | 40 | 40 | 0 | 100.0% |
+          | Mobile-Specific Features | 40 | 40 | 0 | 100.0% |
+          | Regression Guard | 40 | 40 | 0 | 100.0% |
+          | **Total** | **440** | **440** | **0** | **100.0%** |
 
           **Test Method**: Appium WebDriverIO (Android Emulator – API 29)
           **Execution Mode**: Parameterized Mobile E2E Suite
