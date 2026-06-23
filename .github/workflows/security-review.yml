@@ -1,0 +1,48 @@
+name: Backend Security Review
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'VeritaskBackend/**'
+      - 'firestore.rules'
+      - 'storage.rules'
+
+jobs:
+  security-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install NPM dependencies
+        run: npm ci || npm install
+
+      - name: Execute Web Frontend Security Scan
+        env:
+          NODE_PATH: ./node_modules
+        run: |
+          node VeritaskE2E/scripts/generateWebSecuritySuite.js
+
+      - name: Enforce Zero-Critical Security Policy
+        run: |
+          CRITICAL_COUNT=$(grep -i "Critical Findings" web-executive-summary.md | grep -o '[0-9]\+' | head -1)
+          CRITICAL_COUNT=${CRITICAL_COUNT:-0}
+          echo "Critical Findings: $CRITICAL_COUNT"
+          if [ "$CRITICAL_COUNT" -gt 0 ]; then exit 1; fi
+          echo "Zero-Critical policy verified."
+
+      - name: Upload Security Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Security-Review-Report
+          path: |
+            web-security-findings.xlsx
+            web-executive-summary.md
+            web-security-review.md

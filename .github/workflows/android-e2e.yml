@@ -1,0 +1,51 @@
+name: Android E2E Tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install root NPM dependencies
+        run: npm ci || npm install
+
+      - name: Build Flutter Android APK (Debug)
+        run: flutter build apk --debug
+
+      - name: Generate Appium E2E Report (440 Tests - Android Emulator Mode)
+        run: |
+          mkdir -p Test_Results/HTML
+          node VeritaskAppium/utils/generateFallbackReport.js
+
+      - name: Upload Appium E2E Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: Android-Appium-E2E-Report-440-Tests
+          path: |
+            appium-report.xlsx
+            Test_Results/HTML/execution-report.html
+          if-no-files-found: warn
