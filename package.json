@@ -1,0 +1,19 @@
+{
+  "name": "veritask-testing",
+  "version": "1.0.0",
+  "description": "E2E testing, security audits, and load testing for VeriTask",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js --timeout 120000 --reporter ./TutorNowE2E/utils/excelReporter.cjs",
+    "test:e2e": "mocha tests/mega_web_1100.test.js --timeout 120000 --reporter ./TutorNowE2E/utils/excelReporter.cjs",
+    "test:vuln": "mocha tests/vulnerability_400.test.js --timeout 120000 --reporter ./TutorNowE2E/utils/excelReporter.cjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "exceljs": "^4.4.0",
+    "mocha": "^10.4.0",
+    "selenium-webdriver": "^4.22.0",
+    "vite": "^5.2.11"
+  }
+}

@@ -46,3 +46,18 @@ app.*.map.json
 
 # Excel Test Reports
 *.xlsx
+
+# Node modules
+node_modules/
+
+# Local test/security execution results and reports
+Test_Results/
+findings.xlsx
+web-security-findings.xlsx
+selenium-report.xlsx
+load-test-summary.md
+web-security-review.md
+web-executive-summary.md
+security-review.md
+dependency-report.md
+executive-summary.md
