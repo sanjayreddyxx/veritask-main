@@ -2,7 +2,7 @@ import http from 'http';
 import { URL } from 'url';
 import fs from 'fs';
 
-const targetUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:5173/Veritask-project/';
+const targetUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:5173/veritask-main/';
 console.log(`Starting VeriTask Load Test targeting: ${targetUrl}`);
 console.log(`Configuration: 100 concurrent users | Duration: 60 seconds\n`);
 

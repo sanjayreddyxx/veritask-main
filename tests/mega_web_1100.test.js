@@ -5,7 +5,7 @@ import assert from 'assert';
   describe('VeriTask Mega Web E2E Test Suite (300 assertions)', function() {
   this.timeout(120000); // 2 minutes timeout for the entire suite
   let driver;
-  let baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:5173/Veritask-project/';
+  let baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:5173/veritask-main/';
   
   // Cleanly trim trailing slashes
   baseUrl = baseUrl.replace(/\/+$/, '');

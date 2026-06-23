@@ -53,14 +53,14 @@ jobs:
 
       - name: Start Vite Preview Server
         run: |
-          npx vite preview --port 5173 --host 127.0.0.1 --base /Veritask-project/ &
-          echo "TEST_BASE_URL=http://127.0.0.1:5173/Veritask-project/" >> $GITHUB_ENV
+          npx vite preview --port 5173 --host 127.0.0.1 --base /veritask-main/ &
+          echo "TEST_BASE_URL=http://127.0.0.1:5173/veritask-main/" >> $GITHUB_ENV
           
       - name: Wait for Vite Server
         run: |
           echo "Waiting for local Vite server to boot..."
           for i in {1..10}; do
-            if curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5173/Veritask-project/ | grep -q "200\|404"; then
+            if curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5173/veritask-main/ | grep -q "200\|404"; then
               echo "Vite server is UP and responding!"
               break
             fi
@@ -75,7 +75,7 @@ jobs:
 
       - name: Run E2E & Vulnerability Test Suite
         env:
-          TEST_BASE_URL: http://127.0.0.1:5173/Veritask-project/
+          TEST_BASE_URL: http://127.0.0.1:5173/veritask-main/
         run: |
           npm test
 
@@ -89,7 +89,7 @@ jobs:
 
       - name: Run Baseline Load Test (100 Users, 1 Min)
         env:
-          TEST_BASE_URL: http://127.0.0.1:5173/Veritask-project/
+          TEST_BASE_URL: http://127.0.0.1:5173/veritask-main/
         run: |
           node scripts/load_test.js
 
@@ -97,7 +97,7 @@ jobs:
         env:
           NODE_PATH: ./node_modules
         run: |
-          node TutorNowE2E/scripts/generateWebSecuritySuite.js
+          node VeritaskE2E/scripts/generateWebSecuritySuite.js
 
       - name: Enforce Zero-Critical Security Policy (Web)
         run: |
@@ -127,9 +127,9 @@ jobs:
           
           All jobs and **400 Test Cases** (300 E2E assertions + 100 vulnerability assertions) passed successfully!
           
-          - **Unified Excel Report**: [Download Latest Excel](https://${{ github.repository_owner }}.github.io/veritask-project/reports/latest/selenium-report.xlsx)
-          - **Interactive HTML Report**: [View Live E2E Dashboard](https://${{ github.repository_owner }}.github.io/veritask-project/reports/latest/execution-report.html)
-          - **History Report (Build #${{ github.run_number }})**: [View History Dashboard](https://${{ github.repository_owner }}.github.io/veritask-project/reports/history/build-${{ github.run_number }}/execution-report.html)
+          - **Unified Excel Report**: [Download Latest Excel](https://${{ github.repository_owner }}.github.io/veritask-main/reports/latest/selenium-report.xlsx)
+          - **Interactive HTML Report**: [View Live E2E Dashboard](https://${{ github.repository_owner }}.github.io/veritask-main/reports/latest/execution-report.html)
+          - **History Report (Build #${{ github.run_number }})**: [View History Dashboard](https://${{ github.repository_owner }}.github.io/veritask-main/reports/history/build-${{ github.run_number }}/execution-report.html)
           
           All reports have been built and deployed natively to GitHub Pages.
           EOF
