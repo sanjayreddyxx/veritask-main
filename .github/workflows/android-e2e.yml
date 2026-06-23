@@ -1,0 +1,84 @@
+name: Android E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-android"
+  cancel-in-progress: false
+
+jobs:
+  android-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install root NPM dependencies
+        run: npm ci || npm install
+
+      - name: Build Flutter Android APK (Debug)
+        run: flutter build apk --debug
+
+      - name: Run Android E2E Tests in Emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          target: default
+          arch: x86_64
+          profile: Nexus 6
+          script: bash VeritaskAppium/scripts/ci_run_tests.sh
+        env:
+          APK_PATH: build/app/outputs/flutter-apk/app-debug.apk
+
+      - name: Prepare Pages Deployment Directory
+        run: |
+          mkdir -p dist/reports/latest
+          mkdir -p dist/reports/history/build-${{ github.run_number }}
+          cp VeritaskAppium/Test_Results/HTML/execution-report.html dist/reports/latest/execution-report.html
+          cp VeritaskAppium/Test_Results/HTML/execution-report.html dist/reports/history/build-${{ github.run_number }}/execution-report.html
+          cp VeritaskAppium/appium-report.xlsx dist/reports/latest/appium-report.xlsx
+
+      - name: Upload Test Reports as standard artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Appium-Test-Execution-Reports
+          path: |
+            VeritaskAppium/appium-report.xlsx
+            VeritaskAppium/Test_Results/HTML/execution-report.html
+          if-no-files-found: warn
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
