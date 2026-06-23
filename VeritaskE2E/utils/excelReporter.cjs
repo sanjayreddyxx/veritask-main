@@ -23,10 +23,10 @@ class ExcelReporter {
     });
 
     runner.on(EVENT_RUN_END, async () => {
-      console.log('\nGenerating Selenium Excel and HTML reports...');
+      console.log('\nGenerating VeriTask E2E Excel and HTML reports...');
       try {
         await this.writeExcelReport();
-        console.log('Excel report selenium-report.xlsx generated successfully.');
+        console.log('Excel report selenium-report.xlsx generated successfully as VeriTask E2E Report.');
         
         // Trigger HTML Report Generation
         generateHtmlReport(this.results);
@@ -62,7 +62,7 @@ class ExcelReporter {
       actual: metadata.actual || (status === 'PASSED' ? 'Passed' : 'Failed'),
       status: status,
       duration: duration,
-      method: 'Selenium',
+      method: 'VeriTask E2E',
       remarks: errorMessage || metadata.remarks || 'Tested successfully'
     });
   }
@@ -70,8 +70,8 @@ class ExcelReporter {
   async writeExcelReport() {
     const workbook = new ExcelJS.Workbook();
     
-    // Sheet 1: Selenium Test Report
-    const wsReport = workbook.addWorksheet('Selenium Test Report');
+    // Sheet 1: VeriTask E2E Test Report
+    const wsReport = workbook.addWorksheet('VeriTask E2E Test Report');
     wsReport.views = [{ showGridLines: true }];
 
     const headers = [
