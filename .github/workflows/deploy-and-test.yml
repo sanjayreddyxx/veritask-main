@@ -134,6 +134,18 @@ jobs:
           All reports have been built and deployed natively to GitHub Pages.
           EOF
 
+      - name: Upload Test Reports as standard artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test-Execution-Reports
+          path: |
+            selenium-report.xlsx
+            Test_Results/HTML/execution-report.html
+            web-security-findings.xlsx
+            web-executive-summary.md
+            web-security-review.md
+            load-test-summary.md
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
