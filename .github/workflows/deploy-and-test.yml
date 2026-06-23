@@ -125,7 +125,7 @@ jobs:
           
           ### 🚀 VeriTask Test Run execution results
           
-          All jobs and **1,500+ Test Cases** (1,100 E2E assertions + 410 vulnerability assertions) passed successfully!
+          All jobs and **400 Test Cases** (300 E2E assertions + 100 vulnerability assertions) passed successfully!
           
           - **Unified Excel Report**: [Download Latest Excel](https://${{ github.repository_owner }}.github.io/veritask-project/reports/latest/selenium-report.xlsx)
           - **Interactive HTML Report**: [View Live E2E Dashboard](https://${{ github.repository_owner }}.github.io/veritask-project/reports/latest/execution-report.html)

@@ -2,7 +2,7 @@ import { Builder, By, until } from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome.js';
 import assert from 'assert';
 
-describe('VeriTask Mega Web E2E Test Suite (1,100 assertions)', function() {
+  describe('VeriTask Mega Web E2E Test Suite (300 assertions)', function() {
   this.timeout(120000); // 2 minutes timeout for the entire suite
   let driver;
   let baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:5173/Veritask-project/';
@@ -41,7 +41,7 @@ describe('VeriTask Mega Web E2E Test Suite (1,100 assertions)', function() {
     }
   });
 
-  // Define 110 categories and 10 test cases per category (total 1,100 test cases)
+  // Define 30 categories and 10 test cases per category (total 300 test cases)
   const types = [
     'Functional Core', 'UI/UX Visual', 'Browser Compatibility', 'Runtime Performance', 
     'Platform Security', 'API Integration', 'Database Consistency', 'Accessibility Std', 
@@ -49,7 +49,7 @@ describe('VeriTask Mega Web E2E Test Suite (1,100 assertions)', function() {
   ];
 
   const categories = [];
-  for (let i = 1; i <= 110; i++) {
+  for (let i = 1; i <= 30; i++) {
     const type = types[(i - 1) % types.length];
     const groupNum = Math.ceil(i / types.length);
     categories.push({

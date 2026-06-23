@@ -85,10 +85,16 @@ setTimeout(() => {
     
     let avg = 0, min = 0, max = 0;
     if (responseTimes.length > 0) {
-      const sum = responseTimes.reduce((a, b) => a + b, 0);
+      let sum = 0;
+      min = responseTimes[0];
+      max = responseTimes[0];
+      for (let i = 0; i < responseTimes.length; i++) {
+        const val = responseTimes[i];
+        sum += val;
+        if (val < min) min = val;
+        if (val > max) max = val;
+      }
       avg = (sum / responseTimes.length).toFixed(1);
-      min = Math.min(...responseTimes);
-      max = Math.max(...responseTimes);
     }
 
     console.log(`Target URL:         ${targetUrl}`);
